@@ -1,0 +1,123 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    ArrayList<String> zamok = new ArrayList<>();
+    public static void main(String[] args)
+    {
+        Main aaa = new Main();
+        Scanner scanner = new Scanner(System.in);
+        while(true) {
+            System.out.println("Что сегодня будем делать?");
+            System.out.println("1) казнить человека топором");
+            System.out.println("2) Посчитать свои денюшки");
+            System.out.println("3) завести себе раба");
+            System.out.println("4) допросить окоянного");
+            System.out.println("5) Сжечь еретиков");
+            int vibor = scanner.nextInt();
+            if (vibor == 1) {
+                System.out.println("Как зовут смертника?");
+                String q = scanner.nextLine();
+                String Name = scanner.nextLine();
+                System.out.println("Что будем с ним делать?");
+                System.out.println("1) убивать");
+                System.out.println("2) миловать");
+                int vibor2 = scanner.nextInt();
+                kazn(Name,vibor2);
+            }
+            if (vibor == 2) {
+                System.out.println("С чего начьнём?");
+                System.out.println("1) текущи счёт");
+                System.out.println("2) пополнить баланс");
+                int vib = scanner.nextInt();
+                moneys(vib);
+
+
+
+            }
+            if (vibor == 3) {
+                System.out.println("Введите количество рабов которые вы хотите приобрести:");
+                System.out.println("Негров:");
+                int negr = scanner.nextInt();
+                System.out.println("Азиатов");
+                int azit = scanner.nextInt();
+                System.out.println(aaa.norm(negr,azit));
+            }
+            if (vibor == 4) {
+                System.out.println("Как зовут окоянного?");
+                String e = scanner.nextLine();
+                String names = scanner.nextLine();
+                System.out.println("Как будем его пытать?");
+                String pitat = scanner.nextLine();
+                aaa.noKill(names,pitat);
+            }
+            if (vibor == 5) {
+                System.out.println("Скольких сжечь?");
+                String w = scanner.nextLine();
+                String chto = scanner.nextLine();
+                aaa.yesKill(chto);
+            }
+            else{
+                break;
+            }
+        }
+    }
+
+    public static void kazn(String Name,int vibor2) {
+        if (vibor2 == 1) {
+            ybit(Name);
+        }
+        else if (vibor2 == 2) {
+            neYbit(Name);
+        }
+        else{
+            System.out.println("Ты по моему перепутал");
+            main(null);        }
+    }
+    public static void ybit(String Name){
+        System.out.println("Вы казнили " + Name);
+        main(null);
+    }
+    public static void neYbit(String Name){
+        System.out.println("Вы помиловали " + Name);
+        main(null);
+    }
+    public void moneys(int okey){
+        Scanner scanner = new Scanner(System.in);
+        double money = 100000;
+        if (okey == 1){
+            System.out.println("Текущий счёт: "+ money+" рублей");
+            main(null);
+        }
+        else if (okey == 2) {
+            System.out.println("Сколько добавить денюшек? ");
+            double aga = scanner.nextDouble();
+            itog(money,aga);
+        }
+        else{
+            System.out.println("Ты по моему перепутал");
+            main(null);
+        }
+    }
+    public void itog(double money, double aga){
+        double itogo = money + aga;
+        System.out.println("После пополнения счёта получилось "+itogo+" рублей");
+        main(null);
+    }
+    public int norm(int negr,int azit){
+        int vsego = negr + azit;
+        System.out.println("Всего вы купили "+ vsego + " рабов");
+        return vsego;
+    }
+    public  void noKill(String names,String pitat){
+        System.out.println("Окоянного "+names+" вы пытали "+pitat);
+        main(null);
+    }
+    public void yesKill(String chtoto){
+        System.out.println("Не хило, вы сожгли целых "+chtoto+" еретиков");
+        main(null);
+
+    }
+
+
+}
